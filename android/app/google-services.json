@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "126488755266",
+    "project_id": "smartintecom",
+    "storage_bucket": "smartintecom.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:126488755266:android:d2785a624ca680503bc1db",
+        "android_client_info": {
+          "package_name": "com.smartintercom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "126488755266-cqt22hhtfuuhum9tlrmkllgohj5usbmv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smartintercom",
+            "certificate_hash": "58a0dd78aedf1823efc17e5df274a951cfa1f023"
+          }
+        },
+        {
+          "client_id": "126488755266-5c4abu1qie6bfb0gvi61ehk9mbbbj2b2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATHP3lW5SM_8I3mooW0gcjfFluRZzkoWQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "126488755266-5c4abu1qie6bfb0gvi61ehk9mbbbj2b2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
