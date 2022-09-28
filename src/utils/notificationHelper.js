@@ -43,8 +43,8 @@ export const handleNotification = callback => {
         devices_token.then(data => {
           let tokendata = data.filter(item => item.deviceToken === token);
           if (tokendata.length === 0) {
-            addDeviceToken(token).then(data => {
-              console.log('registered', data);
+            addDeviceToken(token).then(result => {
+              console.log('registered', result);
             });
           }
         });
@@ -53,35 +53,59 @@ export const handleNotification = callback => {
     console.log('Permission not granted');
   }
 
-  messaging().onMessage(async remoteMessage => {
+  const unsubscribe = messaging().onMessage(async remoteMessage => {
     console.log(remoteMessage);
-    showAlert(
-      remoteMessage.notification.title,
-      remoteMessage.notification.body,
-      callback,
-      remoteMessage.data,
-    );
-  });
-
-  messaging().onNotificationOpenedApp(async remoteMessage => {
-    if (remoteMessage) {
+    if (remoteMessage.data.status === 'waiting') {
       showAlert(
         remoteMessage.notification.title,
         remoteMessage.notification.body,
         callback,
         remoteMessage.data,
       );
+    }
+  });
+
+  messaging().onNotificationOpenedApp(async remoteMessage => {
+    if (remoteMessage) {
+      if (remoteMessage.data.status === 'waiting') {
+        showAlert(
+          remoteMessage.notification.title,
+          remoteMessage.notification.body,
+          callback,
+          remoteMessage.data,
+        );
+      }
     } else {
       console.log('No initial notification');
     }
   });
 
   messaging().setBackgroundMessageHandler(async remoteMessage => {
-    showAlert(
-      remoteMessage.notification.title,
-      remoteMessage.notification.body,
-      callback,
-      remoteMessage.data,
-    );
+    if (remoteMessage.data.status === 'waiting') {
+      showAlert(
+        remoteMessage.notification.title,
+        remoteMessage.notification.body,
+        callback,
+        remoteMessage.data,
+      );
+    }
   });
+
+  messaging()
+    .getInitialNotification()
+    .then(async remoteMessage => {
+      if (remoteMessage) {
+        if (remoteMessage.data.status === 'waiting') {
+          showAlert(
+            remoteMessage.notification.title,
+            remoteMessage.notification.body,
+            callback,
+            remoteMessage.data,
+          );
+        }
+      }
+    });
+
+  console.log(unsubscribe);
+  return unsubscribe;
 };

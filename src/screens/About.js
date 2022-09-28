@@ -27,9 +27,13 @@ const About = () => {
         </Text>
         <Text style={styles.textContent}>
           Aplikasi ini dibuat oleh Muhaddisin sebagai tugas akhir pada program
-          studi Teknomologi Informasi di Politeknik Aceh.
+          studi Teknologi Informasi di Politeknik Aceh.
         </Text>
-        <Text style={styles.textContent}>Telp: +62 822-6728-0676</Text>
+        <View style={{marginTop: 20}}>
+          <Text style={styles.textContent}>
+            Telp: +62 822-6728-0676 - Email: mhddsn7@gmail.com
+          </Text>
+        </View>
       </View>
       <Text style={styles.footer}>Muhaddisin</Text>
     </View>

@@ -31,7 +31,6 @@ const getGuestLogs = async () => {
   return axios
     .get(BASE_URL + 'get-guest-logs')
     .then(({data}) => {
-      // console.log('getGuestLogs : ', data);
       return data;
     })
     .catch(err => {

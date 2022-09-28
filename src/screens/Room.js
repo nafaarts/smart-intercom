@@ -24,7 +24,7 @@ const Room = () => {
   return (
     <WebView
       allowsInlineMediaPlayback={true}
-      cacheEnabled={true}
+      cacheEnabled={false}
       geolocationEnabled={false}
       javaScriptEnabled
       javaScriptEnabledAndroid={true}
@@ -41,15 +41,10 @@ const Room = () => {
           navigator('/');
         }
       }}
-      onLoadEnd={({nativeEvent}) => {
-        console.log('onLoadEnd', nativeEvent);
-        if (nativeEvent.url === BASE_URL + END_CALL_PATH) {
-          navigator('/');
-        }
-      }}
       onError={({nativeEvent}) => {
         Alert.alert('onError', nativeEvent);
       }}
+      incognito={true}
     />
   );
 };
