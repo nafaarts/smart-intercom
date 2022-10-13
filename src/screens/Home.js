@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, Text, View, StatusBar} from 'react-native';
+import {StyleSheet, Text, View, StatusBar, Image} from 'react-native';
 import {Link, useNavigate} from 'react-router-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {handleNotification} from '../utils/notificationHelper';
@@ -31,6 +31,10 @@ const Home = () => {
         </Link>
       </View>
       <View style={styles.content}>
+        <Image
+          source={require('../../assets/politeknik.png')}
+          style={styles.image}
+        />
         <Text style={styles.title}>
           Smart
           <Text style={styles.boldText}>Intercom</Text>
@@ -55,6 +59,11 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     paddingHorizontal: 30,
   },
+  image: {
+    height: 60,
+    width: 142,
+    marginBottom: 80,
+  },
   icon: {
     fontSize: 30,
     color: '#15375A',
@@ -63,6 +72,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingBottom: 50,
   },
   title: {
     fontSize: 30,
